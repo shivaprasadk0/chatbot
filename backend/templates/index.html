@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartChat Assistant 🤖</title>
+    <link rel="icon" href="/static/favicon.ico" />
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 SmartChat Assistant</h1>
+        <form id="chat-form">
+            <textarea id="user-input" placeholder="Type your message here..." required></textarea>
+            <input type="file" id="file-input" name="file" />
+            <button type="submit">Send</button>
+        </form>
+        <div id="response-box"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('chat-form');
+        const userInput = document.getElementById('user-input');
+        const fileInput = document.getElementById('file-input');
+        const responseBox = document.getElementById('response-box');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append("text", userInput.value);
+            if (fileInput.files.length > 0) {
+                formData.append("file", fileInput.files[0]);
+            }
+
+            const response = await fetch("/chat", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+            const p = document.createElement("p");
+            p.textContent = "🧠: " + data.reply;
+            responseBox.appendChild(p);
+            userInput.value = "";
+            fileInput.value = "";
+        });
+    </script>
+</body>
+</html>
