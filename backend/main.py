@@ -5,15 +5,22 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from openai import OpenAI
+from dotenv import load_dotenv
 import os
 from pathlib import Path
 import shutil
 import tempfile
 
 # -------------------------------
-# Configuration
+# Load environment variables from .env
 # -------------------------------
-client = OpenAI(api_key=)  # Replace this
+load_dotenv()
+
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("❌ OPENAI_API_KEY is not set in .env file or environment.")
+
+client = OpenAI(api_key=api_key)
 
 app = FastAPI()
 

@@ -1,0 +1,75 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Ignore __pycache__ folders
+__pycache__/
+
+# Ignore all .pyc files
+*.pyc
+
+
+# Ignore SQLite database file
+db.sqlite3
+backend/db.sqlite3
+# SQLite database files
+*.sqlite3
+*.db
+*.sqlite
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+*.pyd
+*.dll
+
+# Build directories
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Cython / CPython compiled files
+*.c
+*.cpp
+*.h
+*.pyx.c
+*.pyx.cpp
+*.pyd
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*$py.class
+
+*.ini
+desktop.ini
+.env
