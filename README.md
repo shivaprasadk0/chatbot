@@ -1,6 +1,6 @@
 # chatbot
 
-This chatbot app is built using FastAPI.
+This chatbot app is built using FastAPI (Underlying LLM is from OpenAI, OpenAI key is being used).
 (Langchain is not used)
 
 Before running the app, make sure that you mention open-ai api key
